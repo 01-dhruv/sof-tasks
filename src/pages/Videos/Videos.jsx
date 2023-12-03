@@ -11,23 +11,23 @@ function Videos({theme}) {
   const videoRef = useRef(null);
   const touchStartTime = useRef(0);
 
-  const handleFileChange = (e) => {
-    const selectedFile = e.target.files[0];
-    setFile(selectedFile);
-  };
+  // const handleFileChange = (e) => {
+  //   const selectedFile = e.target.files[0];
+  //   setFile(selectedFile);
+  // };
 
-  const handleUpload = () => {
-    if (file) {
-      const storageRef = ref(storage, file.name);
-      uploadBytes(storageRef, file).then((snapshot) => {
-        getDownloadURL(snapshot.ref).then((downloadURL) => {
-          setUrl(downloadURL);
-        });
-      });
-    } else {
-      setUrl('');
-    }
-  };
+  // const handleUpload = () => {
+  //   if (file) {
+  //     const storageRef = ref(storage, file.name);
+  //     uploadBytes(storageRef, file).then((snapshot) => {
+  //       getDownloadURL(snapshot.ref).then((downloadURL) => {
+  //         setUrl(downloadURL);
+  //       });
+  //     });
+  //   } else {
+  //     setUrl('');
+  //   }
+  // };
 
   const togglePlayPause = () => {
     if (videoRef.current) {
@@ -68,13 +68,13 @@ function Videos({theme}) {
   };
 
   // Event listeners for double-clicks on right and left sides
-  const handleDoubleClickRight = () => {
-    skipForward();
-  };
+  // const handleDoubleClickRight = () => {
+  //   skipForward();
+  // };
 
-  const handleDoubleClickLeft = () => {
-    skipBackward();
-  };
+  // const handleDoubleClickLeft = () => {
+  //   skipBackward();
+  // };
 
   useEffect(() => {
     const refreshFeed = async () => {

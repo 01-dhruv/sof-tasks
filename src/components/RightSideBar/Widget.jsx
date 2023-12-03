@@ -11,7 +11,7 @@ const Widget = ({theme}) => {
 
     const widgetClasses = `widget ${theme.weather === 'Clear' && theme.timeOfDay === 'day' ? 'weather-clear' : 'weather-bad'}`;
     const headerClasses = `widget-h4 ${theme.weather === 'Clear' && theme.timeOfDay === 'day' ? 'weather-clear' : 'weather-bad'}`;
-    const div1Classes = `right-sidebar-div-1 ${theme.weather === 'Clear' && theme.timeOfDay === 'day' ? 'weather-clear' : 'weather-bad'}`;
+    // const div1Classes = `right-sidebar-div-1 ${theme.weather === 'Clear' && theme.timeOfDay === 'day' ? 'weather-clear' : 'weather-bad'}`;
     
 
 

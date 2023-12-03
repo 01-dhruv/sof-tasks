@@ -110,7 +110,7 @@ export const deleteQuestion = (id, navigate) => async (dispatch) => {
 
 export const voteQuestions = (id, value, userId) => async (dispatch) => {
     try {
-        const { data } = await api.voteQuestions(id, value, userId)
+        // const { data } = await api.voteQuestions(id, value, userId)
         dispatch(fetchAllQuestions())
     } catch (error) {
         console.log(error)
@@ -138,7 +138,7 @@ export const postAnswer = (answerData) => async (dispatch) => {
 export const deleteAnswer = (id, answerId, noOfAnswers) => async (dispatch) => {
     try {
         // const { id, noOfAnswers, answerBody, userAnswered } = answerData
-        const { data } = await api.deleteAnswer( id, answerId, noOfAnswers )
+        // const { data } = await api.deleteAnswer( id, answerId, noOfAnswers )
         // dispatch({ type: 'POST_ANSWER', payload: data})
         dispatch(fetchAllQuestions())
     } catch (error) {
