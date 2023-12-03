@@ -73,7 +73,8 @@ const QuestionsDetails = () => {
     const Navigate = useNavigate()
     const dispatch = useDispatch()
     const location = useLocation()
-    const url = 'https://sof-backend2.onrender.com'
+    // const url = 'https://sof-backend2.onrender.com'
+    const url = 'http://localhost:5000'
 
 
     const handlePostAns = (e, answerLength) => {

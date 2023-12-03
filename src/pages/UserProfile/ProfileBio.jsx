@@ -1,6 +1,7 @@
 import React from "react";
 
 const ProfileBio = ({ currentProfile }) => {
+  console.log('curr pro',currentProfile)
   return (
     <div>
       <div>
@@ -25,6 +26,7 @@ const ProfileBio = ({ currentProfile }) => {
         ) : (
           <p>No bio found</p>
         )}
+          <p>{currentProfile?.points} Points</p>
       </div>
     </div>
   );

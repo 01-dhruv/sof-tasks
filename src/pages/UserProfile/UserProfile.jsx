@@ -19,8 +19,8 @@ const UserProfile = (theme) => {
   const currentProfile = users.filter((user) => user._id === id)[0];
   const User = useSelector( (state) => (state.currentUserReducer))
   const [Switch, setSwitch] = useState(false)
-  console.log(currentProfile)
-  console.log(User)
+  console.log('current',User)
+  // console.log(User)
 
 
   return (
