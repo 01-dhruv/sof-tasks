@@ -1,7 +1,7 @@
 import React from 'react'
 import Questions from './Questions'
 const QuestionsList = ({questionsList, theme}) => {
-    console.log(questionsList)
+    // console.log(questionsList)
     return (
         <>
             {

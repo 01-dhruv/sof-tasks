@@ -4,7 +4,7 @@ export const fetchAllUsers = () => async (dispatch) => {
   try {
     const { data } = await api.fetchAllUsers();
     dispatch({ type: "FETCH_USERS", payload: data });
-    console.log('hello', data)
+    // console.log('hello', data)
   } catch (error) {
     console.log(error);
   }

@@ -74,7 +74,8 @@ const QuestionsDetails = () => {
     const dispatch = useDispatch()
     const location = useLocation()
     // const url = 'https://sof-backend2.onrender.com'
-    const url = 'http://localhost:5000'
+    const url = 'https://sof-tasks-backend.onrender.com'
+    // const url = 'http://localhost:5000'
 
 
     const handlePostAns = (e, answerLength) => {

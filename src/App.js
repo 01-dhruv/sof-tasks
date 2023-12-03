@@ -345,7 +345,7 @@ function App() {
   if (!isLoading) {
     setWebsiteTheme(weatherCondition);
   }
-  console.log('test', weatherCondition)
+  // console.log('test', weatherCondition)
 
   return (
     <Router>
