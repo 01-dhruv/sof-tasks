@@ -5,7 +5,7 @@ import './Videos.css';
 
 function Videos({theme}) {
   // const [file, setFile] = useState(null);
-  const [url, setUrl] = useState('');
+  const [url] = useState('');
   const [feedVideos, setFeedVideos] = useState([]);
   const [isPlaying, setIsPlaying] = useState(false);
   const videoRef = useRef(null);

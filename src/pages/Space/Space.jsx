@@ -520,7 +520,7 @@
 
 
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { storage } from '../../firebase';
 import { ref, uploadBytes, getDownloadURL, listAll } from 'firebase/storage';
 // import { getFirestore, collection, addDoc, getDocs } from 'firebase/firestore';
@@ -592,25 +592,14 @@ function MediaUpload( {theme} ) {
 
   //   loadTextContent();
   // }, []);
+  // const refreshFeed = async () => {
+  //   const { images, videos } = await getAllMedia();
+  //   setFeedImages(images);
+  //   setFeedVideos(videos);
+  // };
 
-  useEffect(() => {
-    refreshFeed(); // Load the initial feed data
-  }, [showFeed]); // Reload the feed when showFeed changes
-
-  const refreshFeed = async () => {
-    const { images, videos } = await getAllMedia();
-    setFeedImages(images);
-    setFeedVideos(videos);
-  };
-
-
-  const toggleUploadButtons = () => {
-    setShowUploadButtons(!showUploadButtons);
-  };
-
-  
-
-  const getAllMedia = async () => {
+  // const getAllMedia = async () => {
+    const getAllMedia = useCallback(async () => {    
     const storageRef = ref(storage);
     const files = await listAll(storageRef);
 
@@ -627,7 +616,29 @@ function MediaUpload( {theme} ) {
     }));
 
     return { images: imageUrls, videos: videoUrls };
+  }, []);
+
+
+  const refreshFeed = useCallback(async () => {
+    const { images, videos } = await getAllMedia();
+    setFeedImages(images);
+    setFeedVideos(videos);
+  }, [getAllMedia]);
+
+  useEffect(() => {
+    refreshFeed(); // Load the initial feed data
+  }, [showFeed, refreshFeed]); // Reload the feed when showFeed changes
+
+
+
+
+  const toggleUploadButtons = () => {
+    setShowUploadButtons(!showUploadButtons);
   };
+
+  
+
+
 
   const toggleFeed = () => {
     if (!showInput) {
@@ -671,7 +682,7 @@ function MediaUpload( {theme} ) {
           feedImages.map((imageUrl, index) => (
             // <div key={index} className='image-disp'>
             <div key={index} className={`image-disp ${theme.weather === 'Clear' && theme.timeOfDay === 'day' ? 'weather-clear' : 'weather-bad'}`}>
-              <img src={imageUrl} alt={`Feed Image ${index}`} style={{ maxWidth: '300px', maxHeight: '300px' }} />
+              <img src={imageUrl} alt={`Feed Img ${index}`} style={{ maxWidth: '300px', maxHeight: '300px' }} />
             </div>
           ))}
         {showFeed &&

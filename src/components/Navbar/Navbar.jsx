@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useCallback } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import logo from '../../assets/logo.jpg'
 import search from '../../assets/search.svg'
@@ -17,9 +17,23 @@ const Navbar = () => {
   // const User = JSON.parse(localStorage.getItem('Profile'))
   // console.log(User)
 
-  const dispatch = useDispatch()
-  const navigate = useNavigate()
-  const User = useSelector( (state) => (state.currentUserReducer))
+//   const handleLogOut = () => {
+//     dispatch({ type: "LOGOUT"})
+//     navigate('/')
+//     dispatch(setCurrentUser(null))
+// }
+const dispatch = useDispatch()
+const navigate = useNavigate()
+const User = useSelector( (state) => (state.currentUserReducer))
+
+
+const handleLogOut = useCallback(() => {
+  dispatch({ type: "LOGOUT" });
+  navigate('/');
+  dispatch(setCurrentUser(null));
+}, [dispatch, navigate]);
+
+
 
 
   useEffect( () =>{
@@ -31,15 +45,11 @@ const Navbar = () => {
         }
     }
     dispatch(setCurrentUser( JSON.parse(localStorage.getItem('Profile')) ))
-  }, [dispatch])
+  }, [User?.token, handleLogOut, dispatch])
 
 
 
-  const handleLogOut = () => {
-    dispatch({ type: "LOGOUT"})
-    navigate('/')
-    dispatch(setCurrentUser(null))
-}
+
 
 
 
