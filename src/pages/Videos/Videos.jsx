@@ -1,10 +1,10 @@
 import { useState, useEffect, useRef } from 'react';
 import { storage } from '../../firebase';
-import { ref, uploadBytes, getDownloadURL, listAll } from 'firebase/storage';
+import { ref, getDownloadURL, listAll } from 'firebase/storage';
 import './Videos.css';
 
 function Videos({theme}) {
-  const [file, setFile] = useState(null);
+  // const [file, setFile] = useState(null);
   const [url, setUrl] = useState('');
   const [feedVideos, setFeedVideos] = useState([]);
   const [isPlaying, setIsPlaying] = useState(false);
