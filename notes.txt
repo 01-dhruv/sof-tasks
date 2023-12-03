@@ -1,0 +1,7 @@
+yt api key : AIzaSyBRjWY9J8Y2WoMRKyvJtry6f80SrKHYLjs
+
+url :  https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=20&regionCode=US&key=AIzaSyBRjWY9J8Y2WoMRKyvJtry6f80SrKHYLjs
+
+
+
+open weather api key : ac11932887e9a92e5af65291dcb4a6f0

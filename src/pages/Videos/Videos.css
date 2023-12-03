@@ -1,0 +1,17 @@
+.video {
+    margin-top: 100px;
+}
+
+
+
+.weather-clear {
+    background-color: #fdf7e2;
+    color: black;
+    border: solid 2px black;
+  }
+  
+  .weather-bad {
+    background-color: black;
+    color: white;
+    border: solid 2px white;
+  }
